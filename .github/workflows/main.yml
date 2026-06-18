@@ -1,4 +1,4 @@
-name: terraform practise
+name: terraform ki practise
 
 on: 
   push: 
@@ -6,22 +6,22 @@ on:
       - main
       - feature
   pull_request: 
-    branches:
+    branches: 
       - main
       - feature
+runs-on: ubuntu-latest
 
 jobs:
   my_first_job:
-    name: my first job
+    name: my_first_job
     runs-on: ubuntu-latest
     steps:
-      - name: create folder
-        run: mkdir sumit
-      - name: change directory
-        run: cd sumit
+      - name: create file
+        run: touch sumit.txt
+      - name: data entry
+        run: |
+          echo "mera name jony h" > sumit.txt
+          cat sumit.txt
 
       
-
-    
-    
-  
+      
