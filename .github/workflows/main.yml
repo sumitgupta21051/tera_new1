@@ -12,13 +12,13 @@ on:
 
 jobs:
   my_first_job:
-  name: my first job
-  runs-on: ubuntu-latest
-  steps:
-    - name: create folder
-      run: mkdir sumit
-    - name: change directory
-      run: cd sumit
+    name: my first job
+    runs-on: ubuntu-latest
+    steps:
+      - name: create folder
+        run: mkdir sumit
+      - name: change directory
+        run: cd sumit
 
       
 
