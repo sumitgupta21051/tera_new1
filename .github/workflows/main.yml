@@ -4,24 +4,34 @@ on:
   push: 
     branches: 
       - main
-      - feature-1
+      - feature-2
   pull_request: 
     branches: 
       - main
-      - feature-1
+      - feature-2
+
+env:
+  ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+  ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+
+      
 
 
 jobs:
   my_first_job:
-    name: my_first_job
+    name: terraform init & plan
     runs-on: ubuntu-latest
     steps:
-      - name: create file
-        run: touch sumit.txt
-      - name: data entry
-        run: |
-          echo "mera name jony h" > sumit.txt
-          cat sumit.txt
-
-      
-      
+      - name: terraform setup
+        uses: hashicorp/setup-terraform@v4
+      - name: checkout repo
+        uses: actions/checkout@v7.0.0
+      - name: tera init
+        run: terraform init
+      - name: tera fmt
+        run: terraform fmt
+      - name: tera plan
+        run: terraform plan
+        
